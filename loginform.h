@@ -17,6 +17,9 @@ public:
     LoginForm(QWidget *parent = nullptr);
     ~LoginForm();
 
+private slots:
+    void on_tabWidget_currentChanged(int index);
+
 private:
     Ui::LoginForm *ui;
 };

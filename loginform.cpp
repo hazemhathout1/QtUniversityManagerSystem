@@ -12,3 +12,9 @@ LoginForm::~LoginForm()
 {
     delete ui;
 }
+
+void LoginForm::on_tabWidget_currentChanged(int index)
+{
+
+}
+
