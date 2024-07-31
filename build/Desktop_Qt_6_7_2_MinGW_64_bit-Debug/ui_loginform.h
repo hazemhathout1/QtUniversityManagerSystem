@@ -35,6 +35,7 @@ public:
     QLabel *label;
     QLineEdit *txtAdmin;
     QLineEdit *txtPassword;
+    QLabel *lblCheck;
     QPushButton *btnSIgnIn;
     QWidget *tab_2;
     QPushButton *btnSIgnIn_3;
@@ -77,17 +78,26 @@ public:
 
         txtAdmin = new QLineEdit(formLayoutWidget);
         txtAdmin->setObjectName("txtAdmin");
+        txtAdmin->setEchoMode(QLineEdit::Normal);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, txtAdmin);
 
         txtPassword = new QLineEdit(formLayoutWidget);
         txtPassword->setObjectName("txtPassword");
+        txtPassword->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, txtPassword);
 
+        lblCheck = new QLabel(formLayoutWidget);
+        lblCheck->setObjectName("lblCheck");
+        lblCheck->setStyleSheet(QString::fromUtf8("color: rgb(255, 0, 0);"));
+        lblCheck->setAlignment(Qt::AlignCenter);
+
+        formLayout->setWidget(2, QFormLayout::FieldRole, lblCheck);
+
         btnSIgnIn = new QPushButton(tab);
         btnSIgnIn->setObjectName("btnSIgnIn");
-        btnSIgnIn->setGeometry(QRect(200, 130, 80, 31));
+        btnSIgnIn->setGeometry(QRect(220, 130, 80, 31));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName("tab_2");
@@ -132,7 +142,7 @@ public:
 
         retranslateUi(LoginForm);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(LoginForm);
@@ -143,6 +153,7 @@ public:
         LoginForm->setWindowTitle(QCoreApplication::translate("LoginForm", "LoginForm", nullptr));
         label_2->setText(QCoreApplication::translate("LoginForm", "Password", nullptr));
         label->setText(QCoreApplication::translate("LoginForm", "User Name", nullptr));
+        lblCheck->setText(QString());
         btnSIgnIn->setText(QCoreApplication::translate("LoginForm", "Sign In", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("LoginForm", "Admin", nullptr));
         btnSIgnIn_3->setText(QCoreApplication::translate("LoginForm", "Sign In", nullptr));

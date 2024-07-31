@@ -1,12 +1,12 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'loginform.h'
+** Meta object code from reading C++ file 'adminuniversitysystem.h'
 **
 ** Created by: The Qt Meta Object Compiler version 68 (Qt 6.7.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../loginform.h"
+#include "../../../adminuniversitysystem.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -16,7 +16,7 @@
 
 #include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'loginform.h' doesn't include <QObject>."
+#error "The header file 'adminuniversitysystem.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
 #error "This file was generated using the moc from 6.7.2. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -33,10 +33,10 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSLoginFormENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSLoginFormENDCLASS = QtMocHelpers::stringData(
-    "LoginForm",
-    "on_btnSIgnIn_clicked",
+struct qt_meta_stringdata_CLASSAdminUniversitySystemENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSAdminUniversitySystemENDCLASS = QtMocHelpers::stringData(
+    "AdminUniversitySystem",
+    "on_btnAddStd_clicked",
     ""
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -44,7 +44,7 @@ constexpr auto qt_meta_stringdata_CLASSLoginFormENDCLASS = QtMocHelpers::stringD
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSLoginFormENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSAdminUniversitySystemENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -66,50 +66,50 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSLoginFormENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject LoginForm::staticMetaObject = { {
-    QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_meta_stringdata_CLASSLoginFormENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSLoginFormENDCLASS,
+Q_CONSTINIT const QMetaObject AdminUniversitySystem::staticMetaObject = { {
+    QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
+    qt_meta_stringdata_CLASSAdminUniversitySystemENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSAdminUniversitySystemENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSLoginFormENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSAdminUniversitySystemENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<LoginForm, std::true_type>,
-        // method 'on_btnSIgnIn_clicked'
+        QtPrivate::TypeAndForceComplete<AdminUniversitySystem, std::true_type>,
+        // method 'on_btnAddStd_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
 
-void LoginForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void AdminUniversitySystem::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<LoginForm *>(_o);
+        auto *_t = static_cast<AdminUniversitySystem *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_btnSIgnIn_clicked(); break;
+        case 0: _t->on_btnAddStd_clicked(); break;
         default: ;
         }
     }
     (void)_a;
 }
 
-const QMetaObject *LoginForm::metaObject() const
+const QMetaObject *AdminUniversitySystem::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *LoginForm::qt_metacast(const char *_clname)
+void *AdminUniversitySystem::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSLoginFormENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSAdminUniversitySystemENDCLASS.stringdata0))
         return static_cast<void*>(this);
-    return QMainWindow::qt_metacast(_clname);
+    return QDialog::qt_metacast(_clname);
 }
 
-int LoginForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int AdminUniversitySystem::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QMainWindow::qt_metacall(_c, _id, _a);
+    _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
