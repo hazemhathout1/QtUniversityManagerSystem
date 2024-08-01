@@ -75,27 +75,32 @@ void AddStudent::closeDatabase()
 
 void AddStudent::on_pushButton_clicked()
 {
-    if(ui->txtFName->text().isEmpty()||ui->txtLName->text().isEmpty()||ui->txtPass->text().isEmpty())
+     QMap<QString, int> majorMap = initializeMajorMap();
+    if(ui->txtFName->text().isEmpty()||ui->txtLName->text().isEmpty()||ui->txtPass->text().isEmpty()|| ui->cmbMajor->currentIndex()==-1)
     {
         ui->lblCheck_2->setStyleSheet("color:red;");
         ui->lblCheck_2->setText("Please Enter the data Correctly");
         return;
     }
-    int u_major=ui->cmbMajor->currentText().toInt();
+    int u_major=majorMap[ui->cmbMajor->currentText()];
+
     QString u_FName=ui->txtFName->text();
     QString u_LName=ui->txtLName->text();
     QString u_Pass=ui->txtPass->text();
-    // qDebug()<<u_major;
+    // qDebug()<<ui->cmbMajor->currentIndex();
     openDatabase();
-    QSqlQuery query("insert into Students(FirstName,LastName,Password,Major_id,CH) values(?,?,?,?,?)");
+    // qDebug()<<majorNum;
+    QSqlQuery query("insert into Students(FirstName,LastName,Password,Major_id,CH,major_name) values(?,?,?,?,?,?)");
     // query.addBindValue(1180001);
     query.addBindValue(u_FName);
     query.addBindValue(u_LName);
     query.addBindValue(u_Pass);
     query.addBindValue(u_major);
     query.addBindValue(0);
+    query.addBindValue(ui->cmbMajor->currentText());
     if (!query.exec())
-    {
+{       ui->lblCheck_2->setStyleSheet("color:red;");
+        ui->lblCheck_2->setText("Error in Fetching Data");
         qDebug() << query.lastError();
     }
     else
@@ -115,6 +120,7 @@ void AddStudent::clearData()
     ui->txtFName->clear();
     ui->txtPass->clear();
     ui->txtLName->clear();
+    ui->cmbMajor->setCurrentIndex(-1);
 }
 
 void AddStudent::on_pushButton_2_clicked()

@@ -7,6 +7,7 @@ AdminUniversitySystem::AdminUniversitySystem(QWidget *parent)
 {
     ui->setupUi(this);
     ptrAddStudent=new AddStudent();
+    ptrShowData=new ShowData();
 }
 
 AdminUniversitySystem::~AdminUniversitySystem()
@@ -19,5 +20,11 @@ void AdminUniversitySystem::on_btnAddStd_clicked()
     // this->close();
     ptrAddStudent->show();
 
+}
+
+
+void AdminUniversitySystem::on_btnUpdateData_2_clicked()
+{
+    ptrShowData->show();
 }
 

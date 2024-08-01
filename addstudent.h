@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QComboBox>
+#include <QMap>
+
 #include "databaseheader.h"
 
 namespace Ui {
@@ -21,6 +23,14 @@ public:
     void closeDatabase();
     QSqlDatabase database;
     void clearData();
+
+    QMap<QString, int> initializeMajorMap() {
+        QMap<QString, int> majorMap;
+        majorMap["EEE"] = 1;
+        majorMap["CCE"] = 2;
+        majorMap["CEM"] = 3;
+        return majorMap;
+    }
 
 
 private slots:

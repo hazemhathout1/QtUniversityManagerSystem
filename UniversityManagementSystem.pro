@@ -12,18 +12,21 @@ SOURCES += \
     addstudent.cpp \
     adminuniversitysystem.cpp \
     main.cpp \
-    loginform.cpp
+    loginform.cpp \
+    showdata.cpp
 
 HEADERS += \
     addstudent.h \
     adminuniversitysystem.h \
     databaseheader.h \
-    loginform.h
+    loginform.h \
+    showdata.h
 
 FORMS += \
     addstudent.ui \
     adminuniversitysystem.ui \
-    loginform.ui
+    loginform.ui \
+    showdata.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
