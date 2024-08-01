@@ -16,7 +16,7 @@ AdminUniversitySystem::~AdminUniversitySystem()
 
 void AdminUniversitySystem::on_btnAddStd_clicked()
 {
-    this->close();
+    // this->close();
     ptrAddStudent->show();
 
 }

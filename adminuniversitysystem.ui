@@ -10,14 +10,19 @@
     <height>324</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>8</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Admin</string>
   </property>
   <widget class="QPushButton" name="btnAddStd">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>120</y>
+     <x>130</x>
+     <y>70</y>
      <width>91</width>
      <height>71</height>
     </rect>
@@ -29,8 +34,8 @@
   <widget class="QPushButton" name="btnUpdateData">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>120</y>
+     <x>280</x>
+     <y>70</y>
      <width>91</width>
      <height>71</height>
     </rect>
@@ -42,14 +47,32 @@
   <widget class="QPushButton" name="btnUpdateData_2">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>120</y>
+     <x>130</x>
+     <y>160</y>
      <width>91</width>
      <height>71</height>
     </rect>
    </property>
    <property name="text">
     <string>Show Data</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnUpdateData_3">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>160</y>
+     <width>91</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Register Courses</string>
    </property>
   </widget>
  </widget>

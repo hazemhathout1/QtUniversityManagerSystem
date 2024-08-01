@@ -10,10 +10,23 @@ AddStudent::AddStudent(QWidget *parent)
     ui->cmbMajor->setEditable(false);
     // ui->cmbMajor->lineEdit()->setPlaceholderText("Please Choose Major");
     ui->cmbMajor->setPlaceholderText("Please Enter Option");
-    for(int i=0;i<3;i++)
+    openDatabase();
+    QSqlQuery query("SELECT major_name from majors");
+    if(!query.exec())
     {
-        ui->cmbMajor->addItem(majors[i]);
+        qDebug()<<query.lastError();
+        qDebug()<<"error";
     }
+    else
+    {
+        // qDebug()<<"sfds";
+        while(query.next())
+        {
+            QString item=query.value(0).toString();
+            ui->cmbMajor->addItem(item);
+        }
+    }
+    closeDatabase();
 
 }
 
@@ -68,13 +81,13 @@ void AddStudent::on_pushButton_clicked()
         ui->lblCheck_2->setText("Please Enter the data Correctly");
         return;
     }
-    QString u_major=ui->cmbMajor->currentText();
+    int u_major=ui->cmbMajor->currentText().toInt();
     QString u_FName=ui->txtFName->text();
     QString u_LName=ui->txtLName->text();
     QString u_Pass=ui->txtPass->text();
     // qDebug()<<u_major;
     openDatabase();
-    QSqlQuery query("insert into Students(FirstName,LastName,Password,Major,CH) values(?,?,?,?,?)");
+    QSqlQuery query("insert into Students(FirstName,LastName,Password,Major_id,CH) values(?,?,?,?,?)");
     // query.addBindValue(1180001);
     query.addBindValue(u_FName);
     query.addBindValue(u_LName);
@@ -107,7 +120,7 @@ void AddStudent::clearData()
 void AddStudent::on_pushButton_2_clicked()
 {
     clearData();
-    ui->cmbMajor->clear();
+    // ui->cmbMajor->();
     ui->cmbMajor->setPlaceholderText("Please Enter Option");
 
     ui->lblCheck_2->clear();
