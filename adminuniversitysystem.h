@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "addstudent.h"
 #include "showdata.h"
+#include "searchstudent.h"
 
 namespace Ui {
 class AdminUniversitySystem;
@@ -22,10 +23,13 @@ private slots:
 
     void on_btnUpdateData_2_clicked();
 
+    void on_btnUpdateData_3_clicked();
+
 private:
     Ui::AdminUniversitySystem *ui;
     AddStudent *ptrAddStudent;
     ShowData *ptrShowData;
+    SearchStudent *ptrSearchStudent;
 };
 
 #endif // ADMINUNIVERSITYSYSTEM_H

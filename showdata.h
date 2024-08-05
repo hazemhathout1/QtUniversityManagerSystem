@@ -26,6 +26,8 @@ public:
         majorMap["CEM"] = 3;
         return majorMap;
     }
+    void clearData();
+
 
     void openDatabase()
     {
@@ -62,7 +64,8 @@ public:
             qDebug()<<"Database is closed succefully";
         }
     }
-
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
 private slots:
     void on_pushButton_clicked();

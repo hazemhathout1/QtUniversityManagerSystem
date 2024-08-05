@@ -31,6 +31,8 @@ public:
         majorMap["CEM"] = 3;
         return majorMap;
     }
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
 
 private slots:

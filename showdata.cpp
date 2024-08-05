@@ -68,6 +68,7 @@ void ShowData::on_pushButton_clicked()
     ui->tableView->setColumnWidth(5,70);
     ui->tableView->setColumnWidth(3,70);
     // database.close(std::move(query));
+    ui->txtEnterCode->clear();
     closeDatabase();
 
 
@@ -79,9 +80,10 @@ void ShowData::on_pushButton_3_clicked()
     QMap<QString, int> majorMap = initializeMajorMap();
     int u_major=majorMap[ui->cmbMajor->currentText()];
 
-    openDatabase();
+
     if(ui->cmbMajor->currentIndex()==-1)
     {
+        openDatabase();
         // query.prepare("select * from Students");
         QSqlQuery query("SELECT * FROM Students");
         if(!query.exec())
@@ -105,11 +107,13 @@ void ShowData::on_pushButton_3_clicked()
         ui->tableView->setColumnWidth(4,70);
         ui->tableView->setColumnWidth(5,70);
         ui->tableView->setColumnWidth(3,70);
+        closeDatabase();
         return;
         // database.close(std::move(query));
     }
     else
     {
+        openDatabase();
         QSqlQuery query("select * from Students where major_id=?");
         query.addBindValue(u_major);
         if(!query.exec())
@@ -134,9 +138,25 @@ void ShowData::on_pushButton_3_clicked()
         ui->tableView->setColumnWidth(5,70);
         ui->tableView->setColumnWidth(3,70);
         closeDatabase();
+         ui->cmbMajor->setCurrentIndex(-1);
         return;
     }
-
-
 }
+void ShowData::clearData()
+{
+    // ui->tableView->reset();
+    // ui->tableView->setModel(NULL);>
+    ui->tableView->setModel(nullptr);
+    ui->txtEnterCode->clear();
+}
+
+void ShowData::closeEvent(QCloseEvent *event)
+{
+    qDebug()<<"close event";
+    clearData();
+    QDialog::closeEvent(event);
+}
+
+
+
 

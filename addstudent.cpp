@@ -33,6 +33,7 @@ AddStudent::AddStudent(QWidget *parent)
 AddStudent::~AddStudent()
 {
     delete ui;
+
 }
 
 
@@ -130,5 +131,12 @@ void AddStudent::on_pushButton_2_clicked()
     ui->cmbMajor->setPlaceholderText("Please Enter Option");
 
     ui->lblCheck_2->clear();
+}
+
+void AddStudent::closeEvent(QCloseEvent *event)
+{
+    clearData();
+    ui->lblCheck_2->clear();
+    QDialog::closeEvent(event);
 }
 

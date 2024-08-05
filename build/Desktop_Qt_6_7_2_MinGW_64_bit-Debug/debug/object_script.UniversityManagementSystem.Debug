@@ -1,0 +1,11 @@
+debug/addstudent.o
+debug/adminuniversitysystem.o
+debug/main.o
+debug/loginform.o
+debug/searchstudent.o
+debug/showdata.o
+debug/moc_addstudent.o
+debug/moc_adminuniversitysystem.o
+debug/moc_loginform.o
+debug/moc_searchstudent.o
+debug/moc_showdata.o

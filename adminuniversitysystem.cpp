@@ -8,11 +8,15 @@ AdminUniversitySystem::AdminUniversitySystem(QWidget *parent)
     ui->setupUi(this);
     ptrAddStudent=new AddStudent();
     ptrShowData=new ShowData();
+    ptrSearchStudent=new SearchStudent();
 }
 
 AdminUniversitySystem::~AdminUniversitySystem()
 {
     delete ui;
+    delete ptrAddStudent;
+    delete ptrSearchStudent;
+    delete ptrShowData;
 }
 
 void AdminUniversitySystem::on_btnAddStd_clicked()
@@ -26,5 +30,11 @@ void AdminUniversitySystem::on_btnAddStd_clicked()
 void AdminUniversitySystem::on_btnUpdateData_2_clicked()
 {
     ptrShowData->show();
+}
+
+
+void AdminUniversitySystem::on_btnUpdateData_3_clicked()
+{
+    ptrSearchStudent->show();
 }
 

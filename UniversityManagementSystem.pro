@@ -13,6 +13,7 @@ SOURCES += \
     adminuniversitysystem.cpp \
     main.cpp \
     loginform.cpp \
+    searchstudent.cpp \
     showdata.cpp
 
 HEADERS += \
@@ -20,12 +21,14 @@ HEADERS += \
     adminuniversitysystem.h \
     databaseheader.h \
     loginform.h \
+    searchstudent.h \
     showdata.h
 
 FORMS += \
     addstudent.ui \
     adminuniversitysystem.ui \
     loginform.ui \
+    searchstudent.ui \
     showdata.ui
 
 # Default rules for deployment.
