@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addgrade.cpp \
     addstudent.cpp \
     adminuniversitysystem.cpp \
     main.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
     showdata.cpp
 
 HEADERS += \
+    addgrade.h \
     addstudent.h \
     adminuniversitysystem.h \
     databaseheader.h \
@@ -25,6 +27,7 @@ HEADERS += \
     showdata.h
 
 FORMS += \
+    addgrade.ui \
     addstudent.ui \
     adminuniversitysystem.ui \
     loginform.ui \

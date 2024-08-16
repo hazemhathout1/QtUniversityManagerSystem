@@ -1,9 +1,11 @@
+debug/addgrade.o
 debug/addstudent.o
 debug/adminuniversitysystem.o
 debug/main.o
 debug/loginform.o
 debug/searchstudent.o
 debug/showdata.o
+debug/moc_addgrade.o
 debug/moc_addstudent.o
 debug/moc_adminuniversitysystem.o
 debug/moc_loginform.o

@@ -84,6 +84,7 @@ void ShowData::on_pushButton_3_clicked()
     if(ui->cmbMajor->currentIndex()==-1)
     {
         openDatabase();
+
         // query.prepare("select * from Students");
         QSqlQuery query("SELECT * FROM Students");
         if(!query.exec())

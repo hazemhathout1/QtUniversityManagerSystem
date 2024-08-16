@@ -25,8 +25,8 @@ void SearchStudent::openDatabase()
     if (!database.isOpen())
     {
         database = QSqlDatabase::addDatabase("QSQLITE");
-        database.setDatabaseName("E:/Courses/QT/UniversityManagementSystem/UniversityManagementSystem.db");
-        if (QFile::exists("E:/Courses/QT/UniversityManagementSystem/UniversityManagementSystem.db"))
+        database.setDatabaseName("K:/C++/QT/QtUniversityManagerSystem/UniversityManagementSystem.db");
+        if (QFile::exists("K:/C++/QT/QtUniversityManagerSystem/UniversityManagementSystem.db"))
         {
             qDebug() << "Database exists";
         }
@@ -140,7 +140,9 @@ void SearchStudent::on_pushButton_clicked()
 
 void SearchStudent::on_pushButton_2_clicked()
 {
+    int ui_ch=ui->txtCH->text().toInt();
     bool check;
+    QString majorName=ui->txtMajor->text();
     int dbCourseCredit,dbCourseID,dbMajorID,dbCHSum,dbEnrollCount;
     if(ui->comboBox->currentIndex()==-1)
     {
@@ -153,8 +155,9 @@ void SearchStudent::on_pushButton_2_clicked()
     qDebug()<<CouseName;
     qDebug()<<StudentID;
     openDatabase();
-    QSqlQuery query("select * from courses where course_name=?");
+    QSqlQuery query("select * from courses where course_name=? and major_id=(select major_id from majors where major_name=?)");
     query.addBindValue(CouseName);
+    query.addBindValue(majorName);
     if(!query.exec())
     {
         qDebug()<<query.lastError();
@@ -234,6 +237,16 @@ void SearchStudent::on_pushButton_2_clicked()
     {
        qDebug()<<query.lastError();
     }
+    query.prepare("select CH from students where ID=?");
+    query.addBindValue(StudentID);
+    if(!query.exec())
+    {
+        qDebug()<<query.lastError();
+    }
+    QString chTot;
+    if(query.next())ui->txtCH->setText(query.value(0).toString());
+
+
     closeDatabase();
 }
 

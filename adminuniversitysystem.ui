@@ -41,7 +41,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Update Data</string>
+    <string>Add Grade</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnUpdateData_2">

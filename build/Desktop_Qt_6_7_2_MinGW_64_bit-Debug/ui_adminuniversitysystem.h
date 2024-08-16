@@ -55,7 +55,7 @@ public:
     {
         AdminUniversitySystem->setWindowTitle(QCoreApplication::translate("AdminUniversitySystem", "Admin", nullptr));
         btnAddStd->setText(QCoreApplication::translate("AdminUniversitySystem", "Add Student", nullptr));
-        btnUpdateData->setText(QCoreApplication::translate("AdminUniversitySystem", "Update Data", nullptr));
+        btnUpdateData->setText(QCoreApplication::translate("AdminUniversitySystem", "Add Grade", nullptr));
         btnUpdateData_2->setText(QCoreApplication::translate("AdminUniversitySystem", "Show Data", nullptr));
         btnUpdateData_3->setText(QCoreApplication::translate("AdminUniversitySystem", "Register Courses", nullptr));
     } // retranslateUi

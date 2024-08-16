@@ -1,9 +1,11 @@
+release/addgrade.o
 release/addstudent.o
 release/adminuniversitysystem.o
 release/main.o
 release/loginform.o
 release/searchstudent.o
 release/showdata.o
+release/moc_addgrade.o
 release/moc_addstudent.o
 release/moc_adminuniversitysystem.o
 release/moc_loginform.o

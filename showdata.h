@@ -34,8 +34,8 @@ public:
         if (!database.isOpen())
         {
             database = QSqlDatabase::addDatabase("QSQLITE");
-            database.setDatabaseName("E:/Courses/QT/UniversityManagementSystem/UniversityManagementSystem.db");
-            if (QFile::exists("E:/Courses/QT/UniversityManagementSystem/UniversityManagementSystem.db"))
+            database.setDatabaseName("K:/C++/QT/QtUniversityManagerSystem/UniversityManagementSystem.db");
+            if (QFile::exists("K:/C++/QT/QtUniversityManagerSystem/UniversityManagementSystem.db"))
             {
                 qDebug() << "Database exists";
             }
