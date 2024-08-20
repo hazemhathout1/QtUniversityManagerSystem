@@ -36,15 +36,36 @@ ShowData::~ShowData()
 
 void ShowData::on_pushButton_clicked()
 {
+    // clearData();
+    ui->lblcheck->clear();
+
     if(ui->txtEnterCode->text().isEmpty())
     {
         ui->lblcheck->setStyleSheet("color:red");
         ui->lblcheck->setText("Please Enter ID");
         return;
     }
+    bool dbCheck;
+    //clearData();
     openDatabase();
     QString u_ID=ui->txtEnterCode->text();
-    QSqlQuery query;
+    QSqlQuery query("SELECT  EXISTS(SELECT * from Students where id=?)");
+    query.addBindValue(u_ID);
+    if(!query.exec())
+    {
+        qDebug()<<query.lastError();
+        closeDatabase();
+        return;
+    }
+    if(query.next())dbCheck=query.value(0).toBool();
+    if(!dbCheck)
+    {
+        ui->lblcheck->setStyleSheet("color:red;");
+        ui->lblcheck->setText("Student ID does not Exists");
+        clearData();
+        closeDatabase();
+        return;
+    }
     query.prepare("select * from Students where ID=?");
     query.addBindValue(u_ID);
     if(!query.exec())
@@ -60,13 +81,15 @@ void ShowData::on_pushButton_clicked()
     }
     model->setQuery(std::move(query));
     ui->tableView->setModel(model);
-    ui->tableView->setColumnWidth(0,120);
+    // ui->tableView->setModel(model);
+    ui->tableView->setColumnWidth(0,70);
     ui->tableView->setColumnWidth(1,70);
     ui->tableView->setColumnWidth(2,70);
     ui->tableView->setColumnWidth(3,70);
     ui->tableView->setColumnWidth(4,70);
     ui->tableView->setColumnWidth(5,70);
-    ui->tableView->setColumnWidth(3,70);
+    ui->tableView->setColumnWidth(6,70);
+    ui->tableView->setColumnWidth(7,50);
     // database.close(std::move(query));
     ui->txtEnterCode->clear();
     closeDatabase();
@@ -79,7 +102,7 @@ void ShowData::on_pushButton_3_clicked()
 {
     QMap<QString, int> majorMap = initializeMajorMap();
     int u_major=majorMap[ui->cmbMajor->currentText()];
-
+    clearData();
 
     if(ui->cmbMajor->currentIndex()==-1)
     {
@@ -101,19 +124,21 @@ void ShowData::on_pushButton_3_clicked()
         }
         model->setQuery(std::move(query));
         ui->tableView->setModel(model);
-        ui->tableView->setColumnWidth(0,120);
+        ui->tableView->setColumnWidth(0,70);
         ui->tableView->setColumnWidth(1,70);
         ui->tableView->setColumnWidth(2,70);
         ui->tableView->setColumnWidth(3,70);
         ui->tableView->setColumnWidth(4,70);
         ui->tableView->setColumnWidth(5,70);
-        ui->tableView->setColumnWidth(3,70);
+        ui->tableView->setColumnWidth(6,70);
+        ui->tableView->setColumnWidth(7,50);
         closeDatabase();
         return;
         // database.close(std::move(query));
     }
     else
     {
+        clearData();
         openDatabase();
         QSqlQuery query("select * from Students where major_id=?");
         query.addBindValue(u_major);
@@ -131,13 +156,14 @@ void ShowData::on_pushButton_3_clicked()
         }
         model->setQuery(std::move(query));
         ui->tableView->setModel(model);
-        ui->tableView->setColumnWidth(0,120);
+        ui->tableView->setColumnWidth(0,90);
         ui->tableView->setColumnWidth(1,70);
         ui->tableView->setColumnWidth(2,70);
         ui->tableView->setColumnWidth(3,70);
         ui->tableView->setColumnWidth(4,70);
         ui->tableView->setColumnWidth(5,70);
-        ui->tableView->setColumnWidth(3,70);
+        ui->tableView->setColumnWidth(6,70);
+        ui->tableView->setColumnWidth(7,50);
         closeDatabase();
          ui->cmbMajor->setCurrentIndex(-1);
         return;

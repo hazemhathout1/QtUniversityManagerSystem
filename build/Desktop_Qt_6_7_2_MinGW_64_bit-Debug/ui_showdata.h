@@ -44,8 +44,8 @@ public:
         ShowData->resize(614, 365);
         tableView = new QTableView(ShowData);
         tableView->setObjectName("tableView");
-        tableView->setGeometry(QRect(10, 90, 601, 271));
-        tableView->setLayoutDirection(Qt::LeftToRight);
+        tableView->setGeometry(QRect(10, 120, 601, 241));
+        tableView->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
         formLayoutWidget = new QWidget(ShowData);
         formLayoutWidget->setObjectName("formLayoutWidget");
         formLayoutWidget->setGeometry(QRect(10, 10, 441, 71));
@@ -54,7 +54,7 @@ public:
         formLayout->setContentsMargins(0, 0, 0, 0);
         txtEnterCode = new QLineEdit(formLayoutWidget);
         txtEnterCode->setObjectName("txtEnterCode");
-        txtEnterCode->setAlignment(Qt::AlignCenter);
+        txtEnterCode->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, txtEnterCode);
 
@@ -81,8 +81,8 @@ public:
 
         lblcheck = new QLabel(ShowData);
         lblcheck->setObjectName("lblcheck");
-        lblcheck->setGeometry(QRect(130, 85, 171, 21));
-        lblcheck->setAlignment(Qt::AlignCenter);
+        lblcheck->setGeometry(QRect(200, 90, 171, 21));
+        lblcheck->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         retranslateUi(ShowData);
 
